@@ -1,13 +1,20 @@
-// import { useState } from 'react'
-import PostList from '@/widgets/PostList/PostList'
-
+import { MainPage } from "@/pages/MainPage"
+import MainLayout from "@/shared/layouts/MainLayout/MainLayout"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { ThemeProvider } from "./providers/ThemeProvider"
 
 function App() {
 
   return (
-    <>
-      <PostList />
-    </>
+<BrowserRouter>
+      <ThemeProvider>
+        <Routes>
+          <Route path='/'element={<MainLayout />}>
+            <Route index element={<MainPage />}/>
+          </Route>
+        </Routes>
+      </ThemeProvider>
+    </BrowserRouter>
   )
 }
 
