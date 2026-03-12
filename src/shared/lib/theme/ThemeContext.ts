@@ -1,0 +1,13 @@
+import { createContext, useContext } from "react";
+import { ThemeContextType } from "./types";
+
+export const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+
+export const useTheme = () => {
+    const context = useContext(ThemeContext)
+    if(!context) {
+        throw new Error('useTheme необходимо использовать внутри провайдера ThemeProvider')
+    }
+    return context
+}
+

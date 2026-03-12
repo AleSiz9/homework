@@ -1,0 +1,45 @@
+:root{
+    /* Светлая тема */
+    --background-primary-light: 44, 191, 500;
+    --accent-light: 37, 89, 88;
+        
+    /* Primary button - светлая тема */
+    --button-primary-bg-light: 23, 58, 115;
+    --button-primary-text-light: 255, 255, 255;
+    --button-primary-hover-light: 37, 99, 235;
+    
+    /* Secondary button - светлая тема */
+    --button-secondary-bg-light: 226, 232, 240;
+    --button-secondary-text-light: 30, 41, 59;
+    --button-secondary-hover-light: 203, 213, 225;
+    
+    /* Outline button - светлая тема */
+    --button-outline-text-light: 59, 130, 246;
+    --button-outline-border-light: 59, 130, 246;
+    --button-outline-hover-bg-light: 59, 130, 246, 0.1;
+
+    /* Header - светлая тема */
+    --header-bg-dark: 15, 23, 42;
+    --header-text-dark: 241, 245, 249;
+}
+
+[data-theme='light'] {
+    /* Body */
+    --background-primary: var(--background-primary-light);
+    --accent: var(--accent-light);
+    /* Header */
+    --header-bg: rgb(var(--header-bg-dark));
+    --header-text: rgb(var(--header-text-dark));
+    /* Button */
+    --button-primary-bg: rgb(var(--button-primary-bg-light));
+    --button-primary-text: rgb(var(--button-primary-text-light));
+    --button-primary-hover: rgb(var(--button-primary-hover-light));
+    
+    --button-secondary-bg: rgb(var(--button-secondary-bg-light));
+    --button-secondary-text: rgb(var(--button-secondary-text-light));
+    --button-secondary-hover: rgb(var(--button-secondary-hover-light));
+    
+    --button-outline-text: rgb(var(--button-outline-text-light));
+    --button-outline-border: rgb(var(--button-outline-border-light));
+    --button-outline-hover-bg: rgba(var(--button-outline-hover-bg-light));
+}
