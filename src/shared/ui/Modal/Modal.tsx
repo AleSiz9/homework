@@ -1,17 +1,25 @@
-import { useRef, useState } from 'react';
-import Button from '../Button/Button';
+import { ReactNode, useRef } from 'react';
 import { createPortal } from 'react-dom';
-import s from './modal.module.css'
+import ModalHeader from './ModalHeader';
+import ModalBody from './ModalBody';
+import ModalFooter from './ModalFooter';
 
-const Modal = () => {
-    const [showModal, setShowModal] = useState(false);
+interface ModalProps {
+    isOpen: boolean;
+    onClose: () => void;
+    children: ReactNode;
+    overlayClassName?: string;
+    contentClassName?: string;
+}
+
+const Modal = ({
+    children,
+    onClose,
+    isOpen,
+    overlayClassName = '',
+    contentClassName = ''
+}: ModalProps) => {
     const modalRef = useRef<HTMLDivElement>(null);
-    const openButtonRef = useRef<HTMLButtonElement>(null);
-    const closeButtonRef = useRef<HTMLButtonElement>(null);
-
-    const handleShowModal = () => {
-        setShowModal(prev => !prev)
-    }
 
     const handleTabKey = (e: React.KeyboardEvent) => {
         if (e.key === 'Tab') {
@@ -33,24 +41,16 @@ const Modal = () => {
         }
     };
 
-
     return (
         <>
-            <Button
-                className={s.buttonModal__open}
-                ref={openButtonRef}
-                onClick={handleShowModal}
-            >
-                Информация о проекте
-            </Button>
-            {showModal && createPortal(
+            {isOpen && createPortal(
                 <div
-                    className={s.overlay}
+                    className={overlayClassName}
                     role='presentation'
-
+                    onClick={onClose}
                 >
                     <div
-                        className={s.content}
+                        className={contentClassName}
                         ref={modalRef}
                         role="dialog"
                         aria-modal="true"
@@ -58,21 +58,18 @@ const Modal = () => {
                         aria-describedby="modal-description"
                         onKeyDown={handleTabKey}
                     >
-                        <p id='modal-description' className={s.description}>
-                            Здесь будет информауия о проекте
-                        </p>
-                        <Button
-                            ref={closeButtonRef}
-                            onClick={handleShowModal}
-                        >
-                            Закрыть
-                        </Button>
+                        {children}
                     </div>
                 </div>,
                 document.body
+
             )}
         </>
     );
 };
+
+Modal.Header = ModalHeader;
+Modal.Body = ModalBody;
+Modal.Footer = ModalFooter;
 
 export default Modal;
