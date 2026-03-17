@@ -49,14 +49,12 @@ const PostList = ({ posts, comments, isLoading, loadingFallback }: PostListProps
                     Показать еще
                 </Button>
             )}
-            {selectedPost && (
                 <PostCommentsModal
-                    post={selectedPost}
+                    post={selectedPost ? selectedPost : null}
                     onClose={handleCloseModal}
-                    isOpen={true}
+                    isOpen={selectedPost !== null}
                     comments={postComments}
                 />
-            )}
         </div>
     );
 };

@@ -5,18 +5,18 @@ import { sortByTitleLengthAsc, sortByTitleLengthDesc } from '@/features/PostLeng
 import { SortOrder } from '@/shared/types/sort';
 
 export const usePostSort = (initialPosts: IPostCard[]) => {
-  const [sortOrder, setSortOrder] = useState<SortOrder>(null);
+    const [sortOrder, setSortOrder] = useState<SortOrder>(null);
 
-  const sortedPosts = useMemo(() => {
-    switch(sortOrder) {
-      case 'asc':
-        return sortByTitleLengthAsc(initialPosts);
-      case 'desc':
-        return sortByTitleLengthDesc(initialPosts);
-      default:
-        return initialPosts
-    }
-  }, [initialPosts, sortOrder]);
+    const sortedPosts = useMemo(() => {
+        switch (sortOrder) {
+            case 'asc':
+                return sortByTitleLengthAsc(initialPosts);
+            case 'desc':
+                return sortByTitleLengthDesc(initialPosts);
+            default:
+                return initialPosts
+        }
+    }, [initialPosts, sortOrder]);
 
-  return { sortedPosts, sortOrder, setSortOrder };
+    return { sortedPosts, sortOrder, setSortOrder };
 };

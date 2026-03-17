@@ -7,25 +7,26 @@ import { PostControlPanel } from '@/widgets/ControlPanel';
 import s from './MainPage.module.css';
 
 const MainPage = () => {
-  const { posts, loading, error } = usePosts();
-  const { sortedPosts, sortOrder, setSortOrder } = usePostSort(posts);
+    //сделал рефакторинг для чистоты MainPage и удобства тестирования
+    const { posts, loading, error } = usePosts();
+    const { sortedPosts, sortOrder, setSortOrder } = usePostSort(posts);
 
-  return (
-    <div className={s.container}>
-      <div className={s.postList}>
-        <PostList
-          comments={mockComments}
-          posts={sortedPosts}
-          isLoading={loading}
-          loadingFallback={<Skeleton />}
-        />
-      </div>
-      <aside className={s.panel}>
-        <PostControlPanel sortOrder={sortOrder} onSortChange={setSortOrder} />
-      </aside>
-      {error && <div className={s.error}>{error}</div>}
-    </div>
-  );
+    return (
+        <div className={s.container}>
+            <div className={s.postList}>
+                <PostList
+                    comments={mockComments}
+                    posts={sortedPosts}
+                    isLoading={loading}
+                    loadingFallback={<Skeleton />}
+                />
+            </div>
+            <aside className={s.panel}>
+                <PostControlPanel sortOrder={sortOrder} onSortChange={setSortOrder} />
+            </aside>
+            {error && <div className={s.error}>{error}</div>}
+        </div>
+    );
 };
 
 

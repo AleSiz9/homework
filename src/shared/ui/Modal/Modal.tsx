@@ -1,4 +1,4 @@
-import { ReactNode, useRef } from 'react';
+import { ReactNode, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import ModalHeader from './ModalHeader';
 import ModalBody from './ModalBody';
@@ -20,12 +20,27 @@ const Modal = ({
     contentClassName = ''
 }: ModalProps) => {
     const modalRef = useRef<HTMLDivElement>(null);
+    const previousFocusRef = useRef<HTMLElement | null>(null);
+    const focusableSelector = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+
+    useEffect(() => {
+        if (isOpen) {
+            previousFocusRef.current = document.activeElement as HTMLElement;
+
+            const focusable = modalRef.current?.querySelectorAll(focusableSelector);
+            if (focusable && focusable.length > 0) {
+                (focusable[0] as HTMLElement).focus();
+            } else {
+                modalRef.current?.focus();
+            }
+        } else {
+            previousFocusRef.current?.focus()
+        }
+    }, [isOpen]);
 
     const handleTabKey = (e: React.KeyboardEvent) => {
         if (e.key === 'Tab') {
-            const focusableElements = modalRef.current?.querySelectorAll(
-                'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-            );
+            const focusableElements = modalRef.current?.querySelectorAll(focusableSelector);
             if (!focusableElements || focusableElements.length === 0) return;
 
             const firstElement = focusableElements[0] as HTMLElement;
@@ -57,12 +72,12 @@ const Modal = ({
                         aria-labelledby="modal-title"
                         aria-describedby="modal-description"
                         onKeyDown={handleTabKey}
+                        onClick={(e) => e.stopPropagation()}
                     >
                         {children}
                     </div>
                 </div>,
                 document.body
-
             )}
         </>
     );

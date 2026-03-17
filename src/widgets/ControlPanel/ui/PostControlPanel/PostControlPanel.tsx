@@ -7,7 +7,7 @@ interface PostControlPanelProps {
 }
 
 const PostControlPanel = ({ sortOrder, onSortChange }: PostControlPanelProps) => {
-
+    
     return (
         <>
             <PostLengthFilter sortOrder={sortOrder} onSortChange={onSortChange} />
