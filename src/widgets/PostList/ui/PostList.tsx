@@ -4,21 +4,20 @@ import { withLoading } from "@/shared/lib/hoc/withLoading";
 import { PostCommentsModal } from "@/features/PoctCommentsModal";
 import Button from "@/shared/ui/Button/Button";
 import { IPostCard } from "@/entities/post";
-import { IComment } from "@/entities/comment";
+import { useComments } from "@/entities/comment/hooks/useComments";
 import s from './PostLict.module.css'
-
 
 interface PostListProps {
     posts: IPostCard[]
-    comments: IComment[];
     isLoading?: boolean;
     loadingFallback?: ReactNode;
 }
 
-const PostList = ({ posts, comments, isLoading, loadingFallback }: PostListProps) => {
+const PostList = ({ posts, isLoading, loadingFallback }: PostListProps) => {
     const [limit, setLimit] = useState(10);
     const step = 10;
     const [selectedPostId, setSelectedPostId] = useState<number | null>(null);
+    const {comments} = useComments()
 
     const visibleCards = useMemo(() => posts.slice(0, limit), [posts, limit])
     const selectedPost = posts.find(post => post.id === selectedPostId);

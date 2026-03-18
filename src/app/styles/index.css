@@ -10,13 +10,20 @@
     --accent: rgb(74, 118, 168);
 }
 
+*{
+    box-sizing: border-box;
+}
+
+main{
+    margin-top: 90px;
+}
+
 body {
-    margin: 0;
+    margin: auto;
     display: flex;
     position: relative;
     justify-content: center;
-    place-items: center;
-    box-sizing: border-box;
+    max-width: 1200px;
     min-width: 320px;
     min-height: 100vh;
     background-color: rgba(var(--background-primary), 0.7);

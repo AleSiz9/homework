@@ -2,6 +2,7 @@
     /* Светлая тема */
     --background-primary-light: 44, 191, 500;
     --accent-light: 37, 89, 88;
+    --common-light: 46, 134, 243;
         
     /* Primary button - светлая тема */
     --button-primary-bg-light: 23, 58, 115;
@@ -27,8 +28,9 @@
     /* Body */
     --background-primary: var(--background-primary-light);
     --accent: var(--accent-light);
+    --common-l: var(var(--common-light));
     /* Header */
-    --header-bg: rgb(var(--header-bg-dark));
+    --header-bg: rgb(var(--common-light));
     --header-text: rgb(var(--header-text-dark));
     /* Button */
     --button-primary-bg: rgb(var(--button-primary-bg-light));
