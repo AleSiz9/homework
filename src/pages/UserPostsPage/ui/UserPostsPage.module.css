@@ -1,0 +1,36 @@
+.userPosts {
+  grid-area: uPost;
+  border-radius: 10px;
+  border: solid 1px rgb(139, 139, 139);
+  background-color: rgb(69, 67, 67);
+  padding: 20px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.post {
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid var(--border, #4a4a4a);
+  transition: background-color 0.2s;
+}
+
+.post:hover {
+  background-color: var(--bg-hover, #444);
+}
+
+.post h2 {
+    color: rgb(240, 255, 255);
+    margin: 0 0 8px 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.post p {
+    color: antiquewhite;
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}

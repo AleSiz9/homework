@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { IPostCard } from "../ui/type";
-import { mockPosts } from "@/shared/mock/posts";
-
+import { mockPosts } from "../mocks/posts";
 
 export const usePosts = () => {
     const [loading, setLoading] = useState(false);

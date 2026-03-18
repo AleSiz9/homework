@@ -2,6 +2,7 @@
     /* Тёмная тема */
     --background-primary-dark: 36, 36, 36;
     --accent-dark: 90, 182, 204;
+    --common-dark: 69, 67, 67;
     
     /* Primary button - тёмная тема */
     --button-primary-bg-dark: 96, 165, 250;
@@ -19,7 +20,7 @@
     --button-outline-hover-bg-dark: 96, 165, 250, 0.2;
 
     /* Header - темная тема */
-    --header-bg-light: 26, 27, 29;
+    --header-bg-light: 53, 53, 53;
     --header-text-light: 255, 255, 255;
 }
 
@@ -27,8 +28,9 @@
     /* Body */
     --background-primary: var(--background-primary-dark);
     --accent: var(--accent-dark);
+    --common-d: var(--common-dark);
     /* Header */
-    --header-bg: rgb(var(--header-bg-light));
+    --header-bg: rgb(var(--common-dark));
     --header-text: rgb(var(--header-text-light));
     /* Button */
     --button-primary-bg: rgb(var(--button-primary-bg-dark));

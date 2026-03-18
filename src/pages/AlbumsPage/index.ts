@@ -1,0 +1,1 @@
+export {default as AlbumsPage} from './ui/AlbumsPage'

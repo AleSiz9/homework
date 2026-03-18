@@ -1,28 +1,20 @@
 .container {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto auto;
+    position: relative;
     gap: 24px;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
     min-height: 100vh;
-}
-
-.postList {
-    flex: 1;
-    min-width: 420px;
-    height: 100%;
-    margin-top: 60px;
 }
 
 .panel {
     width: 280px;
     position: sticky;
-    right: 133px;
-    top: 80px;
-    align-self: flex-start;
+    top: 90px;
     border-radius: 12px;
     padding: 16px;
-    background: rgb(var(--background-primary));
+    background: rgb(75, 75, 75);
     height: fit-content;
 }
 
