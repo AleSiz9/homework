@@ -1,7 +1,6 @@
 import { IPostCard } from "@/entities/post";
 
-
-export const mockPostcard: IPostCard[] = [
+export const mockPosts: IPostCard[] = [
     {
         "userId": 1,
         "id": 1,

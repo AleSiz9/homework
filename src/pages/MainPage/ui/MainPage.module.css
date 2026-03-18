@@ -1,0 +1,33 @@
+.container {
+    display: flex;
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.postList {
+    flex: 1;
+    min-width: 420px;
+    height: 100%;
+    margin-top: 60px;
+}
+
+.panel {
+    width: 280px;
+    position: sticky;
+    right: 133px;
+    top: 80px;
+    align-self: flex-start;
+    border-radius: 12px;
+    padding: 16px;
+    background: rgb(var(--background-primary));
+    height: fit-content;
+}
+
+.error {
+    color: red;
+    margin-top: 16px;
+    text-align: center;
+}

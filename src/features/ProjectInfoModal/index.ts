@@ -1,0 +1,1 @@
+export {default as ProjectInfoModal} from './ui/ProjectInfoModal'

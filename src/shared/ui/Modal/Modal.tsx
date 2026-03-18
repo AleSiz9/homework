@@ -1,23 +1,46 @@
-import { useRef, useState } from 'react';
-import Button from '../Button/Button';
+import { ReactNode, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
-import s from './modal.module.css'
+import ModalHeader from './ModalHeader';
+import ModalBody from './ModalBody';
+import ModalFooter from './ModalFooter';
 
-const Modal = () => {
-    const [showModal, setShowModal] = useState(false);
+interface ModalProps {
+    isOpen: boolean;
+    onClose: () => void;
+    children: ReactNode;
+    overlayClassName?: string;
+    contentClassName?: string;
+}
+
+const Modal = ({
+    children,
+    onClose,
+    isOpen,
+    overlayClassName = '',
+    contentClassName = ''
+}: ModalProps) => {
     const modalRef = useRef<HTMLDivElement>(null);
-    const openButtonRef = useRef<HTMLButtonElement>(null);
-    const closeButtonRef = useRef<HTMLButtonElement>(null);
+    const previousFocusRef = useRef<HTMLElement | null>(null);
+    const focusableSelector = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
 
-    const handleShowModal = () => {
-        setShowModal(prev => !prev)
-    }
+    useEffect(() => {
+        if (isOpen) {
+            previousFocusRef.current = document.activeElement as HTMLElement;
+
+            const focusable = modalRef.current?.querySelectorAll(focusableSelector);
+            if (focusable && focusable.length > 0) {
+                (focusable[0] as HTMLElement).focus();
+            } else {
+                modalRef.current?.focus();
+            }
+        } else {
+            previousFocusRef.current?.focus()
+        }
+    }, [isOpen]);
 
     const handleTabKey = (e: React.KeyboardEvent) => {
         if (e.key === 'Tab') {
-            const focusableElements = modalRef.current?.querySelectorAll(
-                'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-            );
+            const focusableElements = modalRef.current?.querySelectorAll(focusableSelector);
             if (!focusableElements || focusableElements.length === 0) return;
 
             const firstElement = focusableElements[0] as HTMLElement;
@@ -33,40 +56,25 @@ const Modal = () => {
         }
     };
 
-
     return (
         <>
-            <Button
-                className={s.buttonModal__open}
-                ref={openButtonRef}
-                onClick={handleShowModal}
-            >
-                Информация о проекте
-            </Button>
-            {showModal && createPortal(
+            {isOpen && createPortal(
                 <div
-                    className={s.overlay}
+                    className={overlayClassName}
                     role='presentation'
-
+                    onClick={onClose}
                 >
                     <div
-                        className={s.content}
+                        className={contentClassName}
                         ref={modalRef}
                         role="dialog"
                         aria-modal="true"
                         aria-labelledby="modal-title"
                         aria-describedby="modal-description"
                         onKeyDown={handleTabKey}
+                        onClick={(e) => e.stopPropagation()}
                     >
-                        <p id='modal-description' className={s.description}>
-                            Здесь будет информауия о проекте
-                        </p>
-                        <Button
-                            ref={closeButtonRef}
-                            onClick={handleShowModal}
-                        >
-                            Закрыть
-                        </Button>
+                        {children}
                     </div>
                 </div>,
                 document.body
@@ -74,5 +82,9 @@ const Modal = () => {
         </>
     );
 };
+
+Modal.Header = ModalHeader;
+Modal.Body = ModalBody;
+Modal.Footer = ModalFooter;
 
 export default Modal;
