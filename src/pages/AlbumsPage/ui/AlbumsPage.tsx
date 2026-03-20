@@ -1,23 +1,52 @@
+import { useGetAlbumsByUserQuery } from "@/entities/album/api/albumsApi";
+import { useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import s from './AlbumsPage.module.css';
+import Button from "@/shared/ui/Button/Button";
 
 
 const AlbomsPage = () => {
-    const albums = [
-      { id: 1, name: "Альбом 1", userId: 1 },
-      { id: 2, name: "Альбом 2", userId: 1 },
-      { id: 3, name: "Альбом 1", userId: 2 },
-      { id: 3, name: "Альбом 1", userId: 3 },
-    ];
+//можно разбить на слои ниже но тк доп интерактива нету оставил так
     const {id} = useParams<{id: string}>()
-    const userAlbums = albums.filter(album => album.userId === Number(id));
+    const {data: albums, isLoading, error} = useGetAlbumsByUserQuery(Number(id))
+    const [limit, setLimit] = useState(3)
+    const step = 3
+    const visible = useMemo(() => albums?.slice(0, limit), [albums, limit])
+    const handleShowMore = () => setLimit(prev => prev + step)
+
+    if (isLoading) return <div>Загрузка альбомов...</div>;
+    if (error) return <div>Ошибка {error.message}</div>;
     return (
-        <div >
-            это альбомы пользователя id{id}
-            {userAlbums.map(album => (
-                <div key={album.id} >
-                    <Link to={`/albums/${album.id}/photos`}>{album.name}</Link>
-                </div>
-            ))}
+        <div>
+            <h2 className={s.title}>Альбомы пользователя {id}</h2>
+            {albums?.length === 0 ? (
+                <p className={s.empty}>У пользователя нет альбомов</p>
+            ) : (
+                <>
+                    <div className={s.grid}>
+                        {visible?.map(album => (
+                            <Link
+                                key={album.id}
+                                to={`/albums/${album.id}/photos`}
+                                className={s.card}
+                            >
+                                <div className={s.cardContent}>
+                                    <p className={s.cardTitle}>{album.title}</p>
+                                </div>
+                            </Link>
+                        ))}
+                    </div>
+                    {limit < (albums?.length ?? 0) && (
+                        <Button
+                            className={s.showMore}
+                            onClick={handleShowMore}
+                            variant="secondary"
+                        >
+                            Показать ещё
+                        </Button>
+                    )}
+                </>
+            )}
         </div>
     );
 };

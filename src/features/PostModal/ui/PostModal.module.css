@@ -1,0 +1,33 @@
+.modalHeader {
+    padding: 1.5rem 1.5rem 0.5rem;
+    border-bottom: 1px solid rgb(190, 190, 190);
+}
+
+.postTitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.postBody {
+    padding: 1.5rem;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.modalBody {
+    margin: 1.5rem 0;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgb(var(--text-primary));
+    overflow-x: hidden;
+}
+
+.modalBody::-webkit-scrollbar{
+    display: none;
+}
+
+.modalFooter {
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+}

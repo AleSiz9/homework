@@ -1,1 +1,0 @@
-export {default as PostCommentsModal} from './ui/PostCommentsModal'

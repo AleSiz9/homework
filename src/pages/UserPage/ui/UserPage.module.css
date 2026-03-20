@@ -1,9 +1,70 @@
 .profile {
   display: flex;
-  width: 50vw;
   margin-top: 80px;
   flex-direction: column;
   gap: 20px;
+}
+
+.userContainer {
+  padding-top: 120px;
+  background-color: rgb(54, 54, 54);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.userInfo{
+  position: relative;
+  padding: 10px 0 10px 20px;
+  background-color: rgb(var(--bg-primary));
+  display: flex;
+  gap: 20px;
+}
+
+.content{
+  grid-area: content;
+}
+
+.avatar {
+  width: 80px;
+  position: relative;
+  height: 80px;
+  border-radius: 50%;
+  background-color: rgb(var(--accent));
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 600;
+  top: -50px;
+  border: 3px solid;
+}
+
+.avatarImage {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.meta {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.email {
+  font-size: 0.875rem;
+  margin: 0;
 }
 
 .container {
@@ -14,8 +75,4 @@
     "tabProfile ."
     "content ."
     ;
-}
-
-.content{
-  grid-area: content;
 }

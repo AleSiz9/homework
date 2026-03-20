@@ -1,0 +1,93 @@
+:root {
+    /* --- Светлая тема --- */
+    --bg-primary-light: 255, 255, 255;
+    --text-primary-light: 26, 32, 44;
+    --accent-light: 37, 89, 88;
+    
+    --boxsh--primary-light: 180, 180, 180;
+
+    --button-primary-bg-light: 255, 255, 255;
+    --button-primary-text-light: 0, 0, 0;
+    --button-primary-hover-light: 37, 99, 235;
+
+    --button-secondary-bg-light: 226, 232, 240;
+    --button-secondary-text-light: 30, 41, 59;
+    --button-secondary-hover-light: 203, 213, 225;
+
+    --button-outline-text-light: 59, 130, 246;
+    --button-outline-border-light: 59, 130, 246;
+    --button-outline-hover-bg-light: 59, 130, 246, 0.1;
+
+    --header-bg-light: 255, 255, 255;
+    --header-text-light: 26, 32, 44;
+
+    /* --- Тёмная тема --- */
+    --bg-primary-dark: 36, 36, 36;
+    --text-primary-dark: 241, 245, 249;
+    --accent-dark: 90, 182, 204;
+
+    --boxsh--primary-dark: 22, 22, 22;
+
+    --button-primary-bg-dark: 96, 165, 250;
+    --button-primary-text-dark: 15, 23, 42;
+    --button-primary-hover-dark: 59, 130, 246;
+
+    --button-secondary-bg-dark: 51, 65, 85;
+    --button-secondary-text-dark: 241, 245, 249;
+    --button-secondary-hover-dark: 71, 85, 105;
+
+    --button-outline-text-dark: 96, 165, 250;
+    --button-outline-border-dark: 96, 165, 250;
+    --button-outline-hover-bg-dark: 96, 165, 250, 0.2;
+
+    --header-bg-dark: 15, 23, 42;
+    --header-text-dark: 241, 245, 249;
+}
+
+[data-theme='light'] {
+    --bg-primary: var(--bg-primary-light);
+    --text-primary: var(--text-primary-light);
+    --accent: var(--accent-light);
+
+    --boxsh--primary: var(--boxsh--primary-light);
+
+    --button-primary-bg: var(--button-primary-bg-light);
+    --button-primary-text: var(--button-primary-text-light);
+    --button-primary-hover: var(--button-primary-hover-light);
+
+    --button-secondary-bg: var(--button-secondary-bg-light);
+    --button-secondary-text: var(--button-secondary-text-light);
+    --button-secondary-hover: var(--button-secondary-hover-light);
+
+    --button-outline-text: var(--button-outline-text-light);
+    --button-outline-border: var(--button-outline-border-light);
+    --button-outline-hover-bg: var(--button-outline-hover-bg-light);
+
+    --header-bg: var(--header-bg-light);
+    --header-text: var(--header-text-light);
+}
+
+[data-theme='dark'] {
+    --bg-primary: var(--bg-primary-dark);
+    --text-primary: var(--text-primary-dark);
+    --accent: var(--accent-dark);
+
+    --boxsh--primary: var(--boxsh--primary-dark);
+
+    --button-primary-bg: var(--button-primary-bg-dark);
+    --button-primary-text: var(--button-primary-text-dark);
+    --button-primary-hover: var(--button-primary-hover-dark);
+
+    --button-secondary-bg: var(--button-secondary-bg-dark);
+    --button-secondary-text: var(--button-secondary-text-dark);
+    --button-secondary-hover: var(--button-secondary-hover-dark);
+
+    --button-outline-text: var(--button-outline-text-dark);
+    --button-outline-border: var(--button-outline-border-dark);
+    --button-outline-hover-bg: var(--button-outline-hover-bg-dark);
+
+    --header-bg: var(--header-bg-dark);
+    --header-text: var(--header-text-dark);
+}
+
+/* 255, 255, 255 */

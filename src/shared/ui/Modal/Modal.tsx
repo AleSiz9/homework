@@ -3,21 +3,18 @@ import { createPortal } from 'react-dom';
 import ModalHeader from './ModalHeader';
 import ModalBody from './ModalBody';
 import ModalFooter from './ModalFooter';
+import s from './modal.module.css'
 
 interface ModalProps {
     isOpen: boolean;
     onClose: () => void;
     children: ReactNode;
-    overlayClassName?: string;
-    contentClassName?: string;
 }
 
 const Modal = ({
     children,
     onClose,
     isOpen,
-    overlayClassName = '',
-    contentClassName = ''
 }: ModalProps) => {
     const modalRef = useRef<HTMLDivElement>(null);
     const previousFocusRef = useRef<HTMLElement | null>(null);
@@ -60,12 +57,12 @@ const Modal = ({
         <>
             {isOpen && createPortal(
                 <div
-                    className={overlayClassName}
+                    className={s.overlay}
                     role='presentation'
                     onClick={onClose}
                 >
                     <div
-                        className={contentClassName}
+                        className={s.content}
                         ref={modalRef}
                         role="dialog"
                         aria-modal="true"
