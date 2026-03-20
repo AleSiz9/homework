@@ -17,29 +17,29 @@
 }
 
 .primary {
-    background-color: var(--button-primary-bg);
-    color: var(--button-primary-text);
+    background-color: rgb(var(--button-primary-bg));
+    color: rgb(var(--button-primary-text));
 }
 
 .primary:hover:not(:disabled) {
-    background-color: var(--button-primary-hover);
+    background-color: rgb(var(--button-primary-hover));
 }
 
 .secondary {
-    background-color: var(--button-secondary-bg);
-    color: var(--button-secondary-text);
+    background-color: rgb(var(--button-secondary-bg));
+    color: rgb(var(--button-secondary-text));
 }
 
 .secondary:hover:not(:disabled) {
-    background-color: var(--button-secondary-hover);
+    background-color: rgb(var(--button-secondary-hover));
 }
 
 .outline {
     background-color: transparent;
-    color: var(--button-outline-text);
-    border: 1px solid var(--button-outline-border);
+    color: rgb(var(--button-outline-text));
+    border: 1px solid rgb(var(--button-outline-border));
 }
 
 .outline:hover:not(:disabled) {
-    background-color: var(--button-outline-hover-bg);
+    background-color: rgb(var(--button-outline-hover-bg));
 }

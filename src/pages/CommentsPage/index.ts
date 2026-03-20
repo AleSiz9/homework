@@ -1,1 +1,0 @@
-export {default as CommentsPage} from './ui/CommentsPage'

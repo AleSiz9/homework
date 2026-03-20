@@ -5,17 +5,19 @@
     width: 100%;
     height: 60px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 0 2rem;
-    background-color: var(--header-bg);
-    color: var(--header-text);
+    background-color: rgb(var(--header-bg));
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
 }
 
-.header_nav a{
-    color: aliceblue;
-    text-decoration: none;
-}   
+.actions {
+    display: flex;
+    gap: 10px;
+    position: inherit;
+    right: 0;
+    margin-right: 20px;
+}

@@ -1,21 +1,10 @@
 .container {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 65% auto;
     position: relative;
     gap: 24px;
-    max-width: 1200px;
     margin: 0 auto;
     min-height: 100vh;
-}
-
-.panel {
-    width: 280px;
-    position: sticky;
-    top: 90px;
-    border-radius: 12px;
-    padding: 16px;
-    background: rgb(75, 75, 75);
-    height: fit-content;
 }
 
 .error {
