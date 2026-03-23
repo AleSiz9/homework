@@ -1,5 +1,5 @@
-import { IPostCard } from "@/entities/post";
-import { SortOrder } from "@/shared/types/sort";
+import type { IPostCard } from "@/entities/post";
+import type { SortOrder } from "@/shared/types/sort";
 
 interface SortOptions<T> {
   order?: SortOrder;

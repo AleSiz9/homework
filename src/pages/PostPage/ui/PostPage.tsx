@@ -1,9 +1,8 @@
 import { useParams } from "react-router-dom";
 import { CommentList } from '@/widgets/CommentList';
 import PostPageSkeleton from '@/shared/ui/Skeleton/PostPageSkeleton/PostPageSkeleton';
-import s from './PostPage.module.css'
 import { useGetPostQuery } from "@/entities/post/api/postsApi";
-
+import s from './PostPage.module.css'
 
 const PostPage = () => {
     const { id } = useParams<{ id: string }>()

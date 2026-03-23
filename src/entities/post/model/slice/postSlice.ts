@@ -1,6 +1,6 @@
-import { createEntityAdapter, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IPostCard } from "../../ui/type";
-import { RootState } from "@/app/providers/store/store";
+import { createEntityAdapter, createSlice, type PayloadAction } from "@reduxjs/toolkit";
+import { type IPostCard } from "../../ui/type";
+import type { RootState } from "@/app/providers/store/store";
 
 
 interface PostState{

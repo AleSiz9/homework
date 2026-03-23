@@ -1,6 +1,6 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
-import { IComment } from "../model/types";
 import { customBaseQuery } from "@/shared/api/baseQueryWithError";
+import type { IComment } from "../model/types";
 
 export const commentsApi = createApi({
     reducerPath: 'commentsApi',

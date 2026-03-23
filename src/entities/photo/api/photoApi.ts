@@ -1,6 +1,6 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
-import { IPhoto } from "../model/types";
 import { customBaseQuery } from "@/shared/api/baseQueryWithError";
+import type { IPhoto } from "../model/types";
 
 export const photoApi = createApi({
     reducerPath: 'photoApi',

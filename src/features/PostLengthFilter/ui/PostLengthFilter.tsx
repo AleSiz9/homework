@@ -1,6 +1,7 @@
-import { SortOrder } from "@/shared/types/sort";
+import type { SortOrder } from '@/shared/types/sort';
+import type { ChangeEvent } from 'react';
 import s from './PostFilter.module.css'
-import { ChangeEvent } from "react";
+
 
 
 interface PostLengthFilterProps {

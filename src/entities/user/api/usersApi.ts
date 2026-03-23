@@ -1,6 +1,6 @@
 import { createApi } from "@reduxjs/toolkit/query/react"
-import { IUser } from "../model/types"
 import { customBaseQuery } from "@/shared/api/baseQueryWithError"
+import type { IUser } from "../model/types"
 
 export const usersApi = createApi({
     reducerPath: 'usersApi',

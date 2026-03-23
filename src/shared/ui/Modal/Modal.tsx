@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useRef } from 'react';
+import { useEffect, useRef, type PropsWithChildren } from 'react';
 import { createPortal } from 'react-dom';
 import ModalHeader from './ModalHeader';
 import ModalBody from './ModalBody';
@@ -8,14 +8,13 @@ import s from './modal.module.css'
 interface ModalProps {
     isOpen: boolean;
     onClose: () => void;
-    children: ReactNode;
 }
 
 const Modal = ({
     children,
     onClose,
     isOpen,
-}: ModalProps) => {
+}: PropsWithChildren<ModalProps>) => {
     const modalRef = useRef<HTMLDivElement>(null);
     const previousFocusRef = useRef<HTMLElement | null>(null);
     const focusableSelector = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';

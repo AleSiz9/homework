@@ -1,13 +1,12 @@
 import { ThemeContext } from "@/shared/lib/theme/ThemeContext";
-import { Theme } from "@/shared/lib/theme/types";
-import { ReactNode, useEffect, useState } from "react";
+import { useEffect, useState, type PropsWithChildren } from "react";
+import type { Theme } from "./types";
 
 
-interface ThemeProviderProps {
-    children: ReactNode;
-}
 
-export const ThemeProvider = ({ children }: ThemeProviderProps) => {
+
+
+export const ThemeProvider = ({ children }: PropsWithChildren) => {
     const [theme, setTheme] = useState<Theme>(() => {
         const saved = localStorage.getItem('theme') as Theme
         return saved || 'light'

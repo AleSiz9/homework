@@ -1,10 +1,9 @@
 import { memo } from "react";
-
 import { Modal } from "@/shared/ui/Modal";
 import { CommentList } from "@/widgets/CommentList";
 import Button from "@/shared/ui/Button/Button";
-import s from './PostModal.module.css'
 import { useGetPostQuery } from "@/entities/post/api/postsApi";
+import s from './PostModal.module.css'
 
 interface PostCommentsModalProps {
     isOpen: boolean;

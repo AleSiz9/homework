@@ -1,1 +1,1 @@
-export {default as AlbumsPage} from './ui/AlbumsPage'
+export { default } from './ui/AlbumsPage'
