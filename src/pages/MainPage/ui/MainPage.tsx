@@ -1,4 +1,3 @@
-
 import { usePostSort } from '@/entities/post/hooks/usePostSort';
 import { PostList } from '@/widgets/PostList';
 import { Skeleton } from '@/shared/ui/Skeleton/MainSkeleton/Skeleton';

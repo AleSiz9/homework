@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, forwardRef } from "react";
+import { forwardRef, type ButtonHTMLAttributes } from "react";
 import s from './button.module.css'
 
 export type ButtonVarian = 'primary' | 'secondary' | 'outline'

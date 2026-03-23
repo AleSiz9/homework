@@ -1,11 +1,10 @@
-import { ReactNode } from "react"
+import type { PropsWithChildren } from "react";
 
 interface ModalHeaderProps {
-    children?: ReactNode;
     className?: string;
 }
 
-const ModalHeader = ({ children, className = '' }: ModalHeaderProps) => {
+const ModalHeader = ({ children, className = '' }: PropsWithChildren<ModalHeaderProps>) => {
     return (
         <>
             {children && (

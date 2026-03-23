@@ -1,4 +1,5 @@
-import { ComponentType, ReactNode } from "react";
+import type { ComponentType, ReactNode } from "react";
+
 
 interface WithLoadingProps{
     isLoading: boolean;

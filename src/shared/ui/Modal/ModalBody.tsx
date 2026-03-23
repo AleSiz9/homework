@@ -1,11 +1,10 @@
-import { ReactNode } from 'react';
+import type { PropsWithChildren } from "react";
 
 interface ModalBidyProps {
-    children: ReactNode;
     className?: string
 }
 
-const ModalBody = ({children, className=''}: ModalBidyProps) => {
+const ModalBody = ({children, className=''}: PropsWithChildren<ModalBidyProps>) => {
     return (
         <>
             {children && (

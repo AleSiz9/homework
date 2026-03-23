@@ -1,6 +1,6 @@
 import { createApi } from "@reduxjs/toolkit/query/react"
-import { ITodo } from "../model/types"
 import { customBaseQuery } from "@/shared/api/baseQueryWithError"
+import type { ITodo } from "../model/types"
 
 export const todosApi = createApi({
     reducerPath: 'todosApi',

@@ -1,1 +1,1 @@
-export {default as PostPage} from './ui/PostPage'
+export {default} from './ui/PostPage'

@@ -1,4 +1,4 @@
-import { fetchBaseQuery, BaseQueryFn, FetchArgs } from '@reduxjs/toolkit/query';
+import { fetchBaseQuery, type BaseQueryFn, type FetchArgs } from '@reduxjs/toolkit/query';
 
 const baseQuery = fetchBaseQuery({ baseUrl: 'https://jsonplaceholder.typicode.com/' });
 
@@ -9,9 +9,7 @@ interface CustomError {
 }
 
 export const customBaseQuery: BaseQueryFn<
-    string | FetchArgs,
-    unknown,
-    CustomError
+    string | FetchArgs, unknown, CustomError
 > = async (args, api, extraOptions) => {
     const result = await baseQuery(args, api, extraOptions);
 
@@ -32,8 +30,8 @@ export const customBaseQuery: BaseQueryFn<
             message = 'Ошибка сервера';
         }
 
-        if (result.error.data?.message) {
-            message = result.error.data.message;
+        if (result.error.data && typeof result.error.data === 'object' && 'message' in result.error.data) {
+            message = String(result.error.data.message);
         }
 
         return {

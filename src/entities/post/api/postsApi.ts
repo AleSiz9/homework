@@ -1,6 +1,6 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
-import { IPostCard } from "../ui/type";
 import { customBaseQuery } from "@/shared/api/baseQueryWithError";
+import type { IPostCard } from "../ui/type";
 
 export const postsApi = createApi({
     reducerPath: 'postsApi',

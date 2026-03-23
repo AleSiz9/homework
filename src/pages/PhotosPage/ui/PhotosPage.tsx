@@ -1,4 +1,3 @@
-
 import { useGetPhotosByAlbumQuery } from '@/entities/photo/api/photoApi';
 import { useParams } from 'react-router-dom';
 

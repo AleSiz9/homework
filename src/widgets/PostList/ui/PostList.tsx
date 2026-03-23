@@ -1,9 +1,10 @@
-import { ReactNode, useCallback, useMemo, useState } from "react";
+import { useCallback, useMemo, useState, type ReactNode } from "react";
 import { withLoading } from "@/shared/lib/hoc/withLoading";
-import { IPostCard } from "@/entities/post";
 import { PostModal } from "@/features/PostModal";
 import PostCard from "@/entities/post/ui/PostCard";
 import Button from "@/shared/ui/Button/Button";
+import { ItemList } from "@/shared/ui/ItemList/ItemList";
+import type { IPostCard } from "@/entities/post";
 import s from './PostLict.module.css'
 
 interface PostListProps {
@@ -26,14 +27,11 @@ const PostList = ({ posts, isLoading, loadingFallback }: PostListProps) => {
 
     return (
         <div className={s.postContent}>
-            {visibleCards.map(post => (
-                <PostCard
-                    key={post.id}
-                    post={post}
-                    onCommentsClick={handleOpenComents}
-                />
-            )
-            )}
+            <ItemList
+                getKey={(post) => post.id}
+                items={visibleCards}
+                renderItem={(post) => <PostCard post={post} onCommentsClick={handleOpenComents}/>}
+            />
             {limit < posts.length && (
                 <Button
                     className={s.button}

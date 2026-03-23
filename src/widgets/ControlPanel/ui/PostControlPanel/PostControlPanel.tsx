@@ -1,6 +1,6 @@
 import { PostLengthFilter } from '@/features/PostLengthFilter';
-import { SortOrder } from '@/shared/types/sort';
 import s from './PostControlPanel.module.css'
+import type { SortOrder } from '@/shared/types/sort';
 
 interface PostControlPanelProps {
     sortOrder: SortOrder;

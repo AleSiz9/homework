@@ -1,4 +1,4 @@
-import { IComment } from '../model/types';
+import type { IComment } from '../model/types';
 import s from './CommentsCard.module.css';
 
 interface CommentsCardProps {

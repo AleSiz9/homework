@@ -1,10 +1,10 @@
 import Button from '@/shared/ui/Button/Button';
-import { IPostCard } from './type';
 import { memo, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { CommentOutlined } from '@ant-design/icons';
-import s from './PostCard.module.css';
 import { useGetUserByIdQuery } from '@/entities/user/api/usersApi';
+import type { IPostCard } from './type';
+import s from './PostCard.module.css';
 
 interface PostCardProps {
     post: IPostCard;

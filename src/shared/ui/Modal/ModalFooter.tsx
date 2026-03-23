@@ -1,11 +1,10 @@
-import { ReactNode } from 'react';
+import type { PropsWithChildren } from "react";
 
 interface ModalFooterProps {
-    children: ReactNode;
     className?: string;
 }
 
-const ModalFooter = ({ children, className = '' }: ModalFooterProps) => {
+const ModalFooter = ({ children, className = '' }: PropsWithChildren<ModalFooterProps>) => {
     return (
         <>
             {children && (

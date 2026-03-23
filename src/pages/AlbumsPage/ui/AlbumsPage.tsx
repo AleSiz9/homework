@@ -1,8 +1,8 @@
 import { useGetAlbumsByUserQuery } from "@/entities/album/api/albumsApi";
 import { useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import s from './AlbumsPage.module.css';
 import Button from "@/shared/ui/Button/Button";
+import s from './AlbumsPage.module.css';
 
 
 const AlbomsPage = () => {
